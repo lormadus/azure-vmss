@@ -31,7 +31,7 @@ storage_profile_data_disk {
 os_profile {
     computer_name_prefix = "testvm"
     admin_username = "myadmin”  ## VM 에 접속할 계정
-    custome_data = file(“web.sh”)
+    custom_data = file(“web.sh”)
 }
 
 os_profile_linux_config {
