@@ -34,6 +34,17 @@ os_profile {
     custom_data = file(“web.sh”)
 }
 
+#서버 80포트 접속안되시는 분들은 실제 서버 접속하셔서 아파치 데몬이 정상 동작하는지
+#확인해 보시면됩니다. 아래는 접속 방법이에요.  
+#LB 인바운드 NAT 규칙에 설정된 것처럼 공인IP 50001 번 포트로 접속을 해서 실제서버
+#22번 포트에 접속하는 NAT 구조입니다. why? 실제 서버는 공인 IP없이 동작하기때문에
+#외부에서 접속하려면 공인IP를 가진 LB가 접속을 도와주어야 하는거죠. 
+#아래 104.40.10.17은 예를 든 IP
+#계정은 위와 같이 설정하셨으면 myadmin 이 되겠죠?
+
+#ssh -i ~/.ssh/id_rsa 계정@104.40.10.17 -p 50001  (첫번째 서버 접속)
+#ssh -i ~/.ssh/id_rsa 계정@104.40.10.17 -p 50003  (두번째 서버 접속)
+
 os_profile_linux_config {
 disable_password_authentication = true
 ssh_keys {
