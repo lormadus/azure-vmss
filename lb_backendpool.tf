@@ -1,5 +1,5 @@
-resource "azurerm_lb_backend_address_pool" “user01-bpepool" {
+resource "azurerm_lb_backend_address_pool" "user01-bpepool" {
     resource_group_name = azurerm_resource_group.user01-rg.name
     loadbalancer_id = azurerm_lb.user01-lb.id
-    name = “user01-BackEndAddressPool"
+    name = "user01-BackEndAddressPool"
 }
