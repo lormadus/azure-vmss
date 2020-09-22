@@ -55,7 +55,7 @@ ssh_keys {
     
     
 extension {
-    name                 = "your-extension-name"
+    name                 = "user01-vmss-extension"
     publisher            = "Microsoft.Azure.Extensions"
     type                 = "CustomScript"
     type_handler_version = "2.0"
