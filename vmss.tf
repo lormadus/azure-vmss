@@ -31,7 +31,7 @@ storage_profile_data_disk {
 os_profile {
     computer_name_prefix = "testvm"
     admin_username = "myadmin"  ## VM 에 접속할 계정
-    custom_data = file("web.sh")
+##    custom_data = file("web.sh")
 }
 
 #서버 80포트 접속안되시는 분들은 실제 서버 접속하셔서 아파치 데몬이 정상 동작하는지
@@ -52,6 +52,22 @@ ssh_keys {
     key_data = file("~/.ssh/id_rsa.pub")  ## 터미널에서 ssh-keygen 으로 생성 (엔터 3번) 
     }
 }
+    
+    
+extension {
+    name                 = "your-extension-name"
+    publisher            = "Microsoft.Azure.Extensions"
+    type                 = "CustomScript"
+    type_handler_version = "2.0"
+
+    settings = <<SETTINGS
+    {
+    "fileUris": ["https://user23cloudshell.blob.core.windows.net/img/web.sh"],
+    "commandToExecute": "bash web.sh"
+    }
+SETTINGS
+}
+
 network_profile {
     name = "terraformnetworkprofile"
     primary = true
