@@ -2,7 +2,7 @@ resource "azurerm_virtual_machine_scale_set" "example" {
 name = "mytestscaleset-1"
 location = azurerm_resource_group.user01-rg.location
 resource_group_name = azurerm_resource_group.user01-rg.name
-upgrade_policy_mode = ”Manual"
+upgrade_policy_mode = "Manual"
 
 sku {
     name = "Standard_D2_v3"
