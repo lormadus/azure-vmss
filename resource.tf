@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "user01-rg" {
-    name     = "user01myresourcegroup"
+    name     = "user01resourcegroup"
     location = "koreacentral"
 
     tags = {
