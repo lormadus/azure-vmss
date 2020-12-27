@@ -1,8 +1,10 @@
-resource "azurerm_virtual_machine_scale_set" "example" {
-name = "mytestscaleset-1"
+resource "azurerm_virtual_machine_scale_set" "user01vmss" {
+name = "user01vmss"
 location = azurerm_resource_group.user01-rg.location
 resource_group_name = azurerm_resource_group.user01-rg.name
+network_security_group_id = azurerm_network_security_group.user01nsg.id
 upgrade_policy_mode = "Manual"
+
 
 sku {
     name = "Standard_D2_v3"
@@ -31,7 +33,7 @@ storage_profile_data_disk {
 os_profile {
     computer_name_prefix = "testvm"
     admin_username = "myadmin"  ## VM 에 접속할 계정
-##    custom_data = file("web.sh")
+    custom_data = file("web.sh")
 }
 
 #서버 80포트 접속안되시는 분들은 실제 서버 접속하셔서 아파치 데몬이 정상 동작하는지
@@ -49,38 +51,40 @@ os_profile_linux_config {
 disable_password_authentication = true
 ssh_keys {
     path = "/home/myadmin/.ssh/authorized_keys"   ## pwd 실행후 경로설정 ex) /home/user01 등 
-    key_data = file("~/.ssh/id_rsa.pub")  ## 터미널에서 ssh-keygen 으로 생성 (엔터 3번) 
+    key_data = file("~/.ssh/id_rsa.pub")  ## Public Key는 VMSS 실행 전에 미리 터미널에서 ssh-keygen 으로 생성 (엔터 3번) 
     }
 }
     
     
-extension {
-    name                 = "user01-vmss-extension"
-    publisher            = "Microsoft.Azure.Extensions"
-    type                 = "CustomScript"
-    type_handler_version = "2.0"
+#extension {
+#    name                 = "user01-vmss-extension"
+#    publisher            = "Microsoft.Azure.Extensions"
+#    type                 = "CustomScript"
+#    type_handler_version = "2.0"
 
-    settings = <<SETTINGS
-    {
-    "fileUris": ["https://user23cloudshell.blob.core.windows.net/img/web.sh"],
-    "commandToExecute": "bash web.sh"
-    }
-SETTINGS
-}
+#    settings = <<SETTINGS
+#    {
+#    "fileUris": ["https://user23cloudshell.blob.core.windows.net/img/web.sh"],
+#    "commandToExecute": "bash web.sh"
+#    }
+#SETTINGS
+#}
 
 network_profile {
-    name = "terraformnetworkprofile"
-    primary = true
-    ip_configuration {
+        name = "terraformnetworkprofile"
+        primary = true
+        ip_configuration {
         name = "TestIPConfiguration"
         primary = true
         subnet_id = azurerm_subnet.user01-subnet1.id
-        load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.bpepool.id]
+        load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.user01-bpepool.id]
         load_balancer_inbound_nat_rules_ids = [azurerm_lb_nat_pool.lbnatpool.id]
     }
+
 }
 tags = {
     environment = "staging"
     }
 }
+
 
