@@ -50,7 +50,7 @@ os_profile {
 os_profile_linux_config {
 disable_password_authentication = true
 ssh_keys {
-    path = "/home/myadmin/.ssh/authorized_keys"   ## pwd 실행후 경로설정 ex) /home/user01 등 
+    path = "/home/myadmin/.ssh/authorized_keys"   ## VMSS 로 생성되는 VM에서 생성되는 계정 .ssh/ 폴더에  id_rsa.pub 파일이 authorized_keys 파일로 복사됨 
     key_data = file("~/.ssh/id_rsa.pub")  ## Public Key는 VMSS 실행 전에 미리 터미널에서 ssh-keygen 으로 생성 (엔터 3번) 
     }
 }
