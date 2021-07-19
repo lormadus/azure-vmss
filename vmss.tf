@@ -77,8 +77,8 @@ network_profile {
         name = "TestIPConfiguration"
         primary = true
         subnet_id = azurerm_subnet.user01-subnet1.id
-        load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.user01-bpepool.id]
-        load_balancer_inbound_nat_rules_ids = [azurerm_lb_nat_pool.lbnatpool.id]
+        load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.user01-bep.id]
+        load_balancer_inbound_nat_rules_ids = [azurerm_lb_nat_pool.user01-lbnatpool.id]
     }
         network_security_group_id = azurerm_network_security_group.user01nsg.id
 }
