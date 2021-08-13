@@ -7,9 +7,9 @@ Azure VMSS 생성 순서
 3. LB Public IP 생성
 4. LB 생성 (LB, LB Rule, Health Probe)
 5. Network Security Group 생성
-10. RSA Key생성(ssh-keygen 명령어)
-11. 사용자 데이터 부분에서 실행할 스트립트 생성(web.sh)
-14. VMSS 생성
+6. RSA Key생성(ssh-keygen 명령어)
+7. 사용자 데이터 부분에서 실행할 스트립트 생성(web.sh)
+8. VMSS 생성
 
 
 # 테라폼 준비 작업
