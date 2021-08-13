@@ -25,6 +25,8 @@ Azure CLI 로그인 후 구독ID, 테넌트 ID 확인
 ```
 az login
 ```
+<img src="https://github.com/lormadus/azure-vmss/blob/master/az_login.png" width=1000>
+<br><br>
 구독이 여러개 인 경우 사용할 구독 선택    
 ```
 az account set --subscription="SUBSCRIPTION_ID"
