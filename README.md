@@ -76,7 +76,8 @@ terraform version
 <br><br>
 # Resource Group 생성
 Azure Resource 그룹 생성시에 Region 설정 필요
-Azure CLI에서 아래 명령어로 Region Code확인 가능    
+Azure CLI에서 아래 명령어로 Region Code확인 가능     
+
 ```
 az account list-locations
 ```
