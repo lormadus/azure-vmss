@@ -51,7 +51,7 @@ export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
 
 <테라폼 설치>    
 ```
-wget https://releases.hashicorp.com/terraform/1.0.3/terraform_1.0.3_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/1.0.4/terraform_1.0.4_linux_amd64.zip
 ```
 <img src="https://github.com/lormadus/azure-vmss/blob/master/img/terraform_download.png" width=1000>
 <br><br>
@@ -59,7 +59,7 @@ wget https://releases.hashicorp.com/terraform/1.0.3/terraform_1.0.3_linux_amd64.
 테라폼 압축을 풀기 위해 unzip 패키지 설치   
 ```
 apt install unzip 
-unzip terraform_1.0.3_linux_amd64.zip
+unzip terraform_1.0.4_linux_amd64.zip
 ```
 <img src="https://github.com/lormadus/azure-vmss/blob/master/img/install_unzip.png" width=1000>
 <br><br>
