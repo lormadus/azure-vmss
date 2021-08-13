@@ -38,7 +38,8 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPT
 ```
 <img src="https://github.com/lormadus/azure-vmss/blob/master/img/create_sp.png" width=1000>
 <br><br>
-<Azure 인증을 위한 변수 등록>   
+
+<Azure 인증을 위한 변수 등록>    
 ```
 export ARM_CLIENT_ID="00000000-0000-0000-0000-000000000000" 
 export ARM_CLIENT_SECRET="00000000-0000-0000-0000-000000000000" 
