@@ -53,11 +53,17 @@ export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
 ```
 wget https://releases.hashicorp.com/terraform/1.0.3/terraform_1.0.3_linux_amd64.zip
 ```
+<img src="https://github.com/lormadus/azure-vmss/blob/master/img/terraform_download.png" width=1000>
+<br><br>
+
 테라폼 압축을 풀기 위해 unzip 패키지 설치   
 ```
 apt install unzip 
 unzip terraform_1.0.3_linux_amd64.zip
 ```
+<img src="https://github.com/lormadus/azure-vmss/blob/master/img/install_unzip.png" width=1000>
+<br><br>
+
 테라폼 파일을 /bin 으로 복사
 ```
 cp terraform /bin
@@ -66,7 +72,8 @@ cp terraform /bin
 ```
 terraform version
 ```
-
+<img src="https://github.com/lormadus/azure-vmss/blob/master/img/terraform_copy_to_bin.png" width=1000>
+<br><br>
 # Resource Group 생성
 Azure Resource 그룹 생성시에 Region 설정 필요
 Azure CLI에서 아래 명령어로 Region Code확인 가능 
