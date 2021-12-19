@@ -5,5 +5,6 @@ resource "azurerm_lb_rule" "user01-lbnatrule" {
     protocol = "Tcp"
     frontend_port = 80
     backend_port = 80
+    backend_address_pool_id        = azurerm_lb_backend_address_pool.user01-bep.id
     frontend_ip_configuration_name = "user01PublicIPAddress"
 }
