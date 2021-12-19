@@ -6,5 +6,4 @@ resource "azurerm_lb_rule" "user01-lbnatrule" {
     frontend_port = 80
     backend_port = 80
     frontend_ip_configuration_name = "user01PublicIPAddress"
-    probe_id = azurerm_lb_probe.user01-lb-probe.id
 }
