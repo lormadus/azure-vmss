@@ -7,5 +7,5 @@ resource "azurerm_lb_rule" "user01-lbnatrule" {
     backend_port = 80
     backend_address_pool_id        = azurerm_lb_backend_address_pool.user01-bep.id
     frontend_ip_configuration_name = "user01PublicIPAddress"
-    probe_id                       = azurerm_lb_probe.user30-lb-probe.id
+    probe_id                       = azurerm_lb_probe.user01-lb-probe.id
 }
